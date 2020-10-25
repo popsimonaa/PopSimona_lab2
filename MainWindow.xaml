@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PopSimona_lab2"
         mc:Ignorable="d"
-        Title=" Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+        Title=" Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Loaded="frmMain_Loaded">
     <Grid Margin="0,10,0,0">
         <Label x:Name="lblTitle" Content="Doughnuts- bake &amp; sale" FontSize="24" FontWeight="Bold" Margin="206,10,-206,-10"/>
         <GroupBox x:Name="gbRaised" Header="Raised" FontWeight="Bold" Margin="105,52,435,217">
@@ -15,7 +15,7 @@
 
         </GroupBox>
         <Label x:Name="lblGlazedRaised" Content="Glazed" Margin="121,86,-119,-116"/>
-        <TextBox x:Name="TxtGlazedRaised" Text="0"  IsReadOnly="True" TextWrapping="Wrap" Margin="206,88,504,318"/>
+        <TextBox x:Name="txtGlazedRaised" Text="0"  IsReadOnly="True" TextWrapping="Wrap" Margin="206,88,504,318"/>
         <Label x:Name="lblSugarRaised" Content="Sugar" Margin="123,139,-95,160"/>
         <TextBox x:Name="txtSugarRaised" Text="0" TextWrapping="Wrap" IsReadOnly="True" Margin="206,142,504,263"/>
         <Label x:Name="lblLemonFilled" Content="Lemon" Margin="459,71,-459,-71"/>
@@ -38,17 +38,18 @@
         <Button Content="Remove Item" Margin="644,326,76,76"/>
         <Button x:Name="btnCheckOut_" Content="Check Out" FontWeight="Bold" Margin="639,366,76,31"/>
         <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="131" Margin="0,26,0,0">
-            <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+            <MenuItem Header="File" Click="exitToolStripMenuItem_Click">
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="_Doughnuts" Height="20">
                 <MenuItem Header="Make">
                     <MenuItem Header="Raised">
-                        <MenuItem x:Name="glazedMenuItem" Header="Glazed"/>
-                        <MenuItem x:Name="sugarMenuItem" Header="Sugar"/>
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed" Click="glazedToolStripMenuItem_Click" IsCheckable="True"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar" IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
                     </MenuItem>
                     <MenuItem Header="Filled"/>
                 </MenuItem>
+                <MenuItem x:Name="mnuStop" Header="Stop"/>
             </MenuItem>
         </Menu>
 
